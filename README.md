@@ -9,3 +9,13 @@ release exists — no tokens, no configuration, no telemetry sent.
 
 The product itself is distributed privately (GHCR + offline bundles); this repo
 contains **no code and no artifacts**, only version metadata and notes.
+
+## Install Axeloot Æ (server)
+
+```bash
+curl -fsSL https://get.axeloot.com/ae | sudo bash
+```
+
+`/ae` is the one-command Docker installer (`deploy/bootstrap.sh` from the
+product repo, synced on every release). Until DNS is live, the same file is at
+`https://raw.githubusercontent.com/Axeloot-Enterprise/axeloot-releases/main/ae`.
