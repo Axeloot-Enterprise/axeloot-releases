@@ -1,11 +1,11 @@
 {
   "product": "axeloot-ae",
-  "updated_at": "2026-07-13T12:03:53Z",
+  "updated_at": "2026-07-20T13:08:51Z",
   "channels": {
     "stable": {
-      "version": "5.6.0",
-      "published_at": "2026-07-13T12:03:53Z",
-      "notes_url": "https://raw.githubusercontent.com/Axeloot-Enterprise/axeloot-releases/main/notes/v5.6.0.md"
+      "version": "5.6.1",
+      "published_at": "2026-07-20T13:08:51Z",
+      "notes_url": "https://raw.githubusercontent.com/Axeloot-Enterprise/axeloot-releases/main/notes/v5.6.1.md"
     }
   }
 }
