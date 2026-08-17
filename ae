@@ -40,6 +40,38 @@
 #
 set -euo pipefail
 
+# ── RETIRED ─────────────────────────────────────────────────────────────────
+# This installer predates the 5.8.0 deployment contract and cannot bring up the
+# current stack. It is kept only so an operator who still has the old command
+# gets told where to go, instead of a broken half-install.
+#
+# It extracts docker-compose.prod.yml out of the image, and that compose file
+# requires an entire layout this script does not create: AXELOOT_IMAGE (this
+# script writes only AXELOOT_VERSION), ./config/app.env, five file-based docker
+# secrets including the PostgreSQL TLS material, and the deploy/linux/
+# entrypoints it bind-mounts. `docker compose up` fails on the first of those
+# and never reaches the rest.
+#
+# The supported path is deploy/linux/ — see docs/GETTING_STARTED.md.
+cat >&2 <<'RETIRED_EOF'
+[axeloot] ERROR: this installer is retired and cannot install this version.
+
+  It was written for the pre-5.8.0 deployment contract. Running it now produces
+  a directory that looks installed and a stack that cannot start.
+
+  Install instead with:
+
+    tar xzf axeloot-bundle-<version>.tar.gz && cd axeloot-bundle-<version>
+    sudo ./deploy/linux/bootstrap-host.sh --source . --ssh-allow <your.ip>/32
+    sudo /opt/axeloot/deploy/linux/init-secrets.sh
+    sudo /opt/axeloot/deploy/linux/install.sh --image-archive "$PWD/images.tar.gz"
+
+  Full walkthrough: docs/GETTING_STARTED.md
+  Operator manual:  docs/operations/LINUX_SINGLE_HOST_DEPLOYMENT.md
+RETIRED_EOF
+exit 1
+# ── everything below is unreachable and kept only for reference ──────────────
+
 INSTALL_DIR="/opt/axeloot"
 CHANNEL="stable"
 VERSION=""
